@@ -122,7 +122,6 @@ class kafka (
     ensure  => present,
     target  => $install_directory,
     url     => $package_url,
-    creates => "${install_directory}/config",
     user    => 'kafka',
     group   => 'kafka',
     require => [
