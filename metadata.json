@@ -9,8 +9,8 @@
   "issues_url": "https://github.com/voxpupuli/puppet-kafka/issues",
   "dependencies": [
     {
-      "name": "puppet/archive",
-      "version_requirement": ">= 0.5.0"
+      "name": "camptocamp/archive",
+     "version_requirement": ">= 0.8.1"
     },
     {
       "name": "puppetlabs/java",
