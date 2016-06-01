@@ -119,11 +119,12 @@ class kafka (
   }
 
   archive { "${package_dir}/${basefilename}":
-    ensure  => present,
-    target  => $install_directory,
-    url     => $package_url,
-    notify  => Exec['Fix kafka perms'],
-    require => [
+    ensure   => present,
+    target   => $install_directory,
+    checksum => false,
+    url      => $package_url,
+    notify   => Exec['Fix kafka perms'],
+    require  => [
       File[$package_dir],
       File[$install_directory],
       Group['kafka'],
