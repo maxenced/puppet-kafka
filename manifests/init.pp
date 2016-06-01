@@ -122,7 +122,7 @@ class kafka (
     ensure  => present,
     target  => $install_directory,
     url     => $package_url,
-    notify  => Exec['fix kafka perms'],
+    notify  => Exec['Fix kafka perms'],
     require => [
       File[$package_dir],
       File[$install_directory],
