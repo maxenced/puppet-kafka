@@ -118,7 +118,7 @@ class kafka (
     ],
   }
 
-  archive { "${package_dir}/${basefilename}":
+  archive { $basefilename:
     ensure   => present,
     target   => $install_directory,
     checksum => false,
