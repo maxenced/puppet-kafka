@@ -138,7 +138,7 @@ class kafka (
     require     => [
       Group['kafka'],
       User['kafka'],
-      Archive["${package_dir}/${basefilename}"]
+      Archive[$basefilename]
     ]
   }
 }
