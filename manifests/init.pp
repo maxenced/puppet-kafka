@@ -122,13 +122,22 @@ class kafka (
     ensure  => present,
     target  => $install_directory,
     url     => $package_url,
-    user    => 'kafka',
-    group   => 'kafka',
+    notify  => Exec['fix kafka perms'],
     require => [
       File[$package_dir],
       File[$install_directory],
       Group['kafka'],
       User['kafka'],
     ],
+  }
+
+  exec { 'Fix kafka perms':
+    command     => "chown -R kafka:kafka ${install_directory}",
+    refreshonly => true,
+    require     => [
+      Group['kafka'],
+      User['kafka'],
+      Archive["${package_dir}/${basefilename}"]
+    ]
   }
 }
