@@ -105,7 +105,7 @@ class kafka (
     ensure  => directory,
     owner   => 'kafka',
     group   => 'kafka',
-    require => Archive["${package_dir}/${basefilename}"],
+    require => Archive[$basefilename],
   }
 
   file { '/var/log/kafka':
