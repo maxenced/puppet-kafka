@@ -88,7 +88,7 @@ class kafka (
   file { '/opt/kafka':
     ensure  => link,
     target  => $install_directory,
-    require => File[$install_directory],
+    require => Archive[$basefilename],
   }
 
   file { '/opt/kafka/config':
@@ -118,7 +118,6 @@ class kafka (
     notify           => Exec['Fix kafka perms'],
     require          => [
       File[$package_dir],
-      File[$install_directory],
       Group['kafka'],
       User['kafka'],
     ],
