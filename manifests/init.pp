@@ -52,9 +52,9 @@ class kafka (
   $package_url = "${mirror_url}/kafka/${version}/${basefilename}"
 
   if $version != $kafka::params::version {
-    $install_directory = "/opt/kafka-${scala_version}-${version}"
+    $install_directory = "/opt/kafka_${scala_version}-${version}"
   } elsif $scala_version != $kafka::params::scala_version {
-    $install_directory = "/opt/kafka-${scala_version}-${version}"
+    $install_directory = "/opt/kafka_${scala_version}-${version}"
   } else {
     $install_directory = $install_dir
   }
