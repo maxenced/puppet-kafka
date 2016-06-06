@@ -85,16 +85,6 @@ class kafka (
     ],
   }
 
-  file { $install_directory:
-    ensure  => directory,
-    owner   => 'kafka',
-    group   => 'kafka',
-    require => [
-      Group['kafka'],
-      User['kafka'],
-    ],
-  }
-
   file { '/opt/kafka':
     ensure  => link,
     target  => $install_directory,
