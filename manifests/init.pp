@@ -120,10 +120,10 @@ class kafka (
 
   archive { $basefilename:
     ensure           => present,
-    target           => $install_directory,
+    target           => '/opt',
     checksum         => false,
     url              => $package_url,
-    strip_components => 1,
+    strip_components => 0,
     notify           => Exec['Fix kafka perms'],
     require          => [
       File[$package_dir],
