@@ -113,7 +113,7 @@ class kafka (
     target           => '/opt',
     checksum         => false,
     url              => $package_url,
-    root_dir         => 'kafka_2.11-0.9.0.1',
+    root_dir         => "kafka_${scala_version}-${version}",
     strip_components => 0,
     notify           => Exec['Fix kafka perms'],
     require          => [
